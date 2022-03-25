@@ -31,7 +31,9 @@ Pull requests are welcome. For changes, please contact me (my info is in the que
     
 ## Visual
 
-
+![Homepage](./images/Screenshot%202022-03-25%20160953.png)
+![Notes Page](./images/Screenshot%202022-03-25%20161055.png)
+![Added Note](./images/Screenshot%202022-03-25%20161222.png)
 
 ## Questions
 
