@@ -69,6 +69,35 @@ app.post('/api/notes', (req, res) => {
   })
 })
 
+// delete request
+app.delete('/api/notes/:id', (req, res) => {
+  var list = [];
+  //console.log(req.params.id)
+  fs.readFile('./db/db.json', (err, result) => {
+    console.log('read file');
+    if(err){
+      console.log(err);
+    } else {
+      list = JSON.parse(result);
+      list.forEach(element => {
+        if(element.id == req.params.id){
+          //console.log('delted element');
+          var index = list.indexOf(element);
+          list.splice(index, 1);
+        }
+      })
+      fs.writeFile('./db/db.json', JSON.stringify(list), (err) => {
+        if(err){
+          console.log(err);
+          //sending back data
+        } else {
+          res.send('Got a DELETE request');
+        }
+      })
+    }
+  })
+})
+
 //get is building a star route to send back index.html when there are extra directories put at the end of the url
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '/public/index.html'));
